@@ -1,0 +1,4 @@
+/node_modules/
+/dist/
+/web/bundle.js
+/web/bundle.js.LICENSE.txt

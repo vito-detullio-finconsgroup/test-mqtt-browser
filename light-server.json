@@ -3,7 +3,7 @@
     "servePrefix": "/test-mqtt-browser",
     "port": 8080,
     "watchexps": [
-        "src/** # npm run build -- --outDir ./web/"
+        "src/** # npm run build -- --output-path ./web/"
     ],
     "open": "/test-mqtt-browser/index.html"
 }
