@@ -1,27 +1,13 @@
-import * as mqtt from 'mqtt';
+import { connectAsync } from 'async-mqtt';
 
-export const URL = 'mqtt://test.mosquitto.org';
+export const TOPIC = 'mytopic';
 
-export function connect(url: string): mqtt.MqttClient {
-    const client = mqtt.connect(url);
-
-    client.on('connect', () => {
-        client.subscribe('presence', (err: Error) => {
-            if (!err) {
-                client.publish('presence', 'Hello mqtt');
-            }
-        })
-    })
-
-    client.on('message', (topic: string, message: Buffer) => {
-        // message is Buffer
-        console.log(message.toString());
-        client.end();
-    });
-
-    return client;
-}
-
-export function sum(a: number, b: number): number {
-    return a + b;
+export async function publish(url: string, message: string): Promise<void> {
+    const client = await connectAsync(url);
+    try {
+        client.publish(TOPIC, message);
+    }
+    finally {
+        await client.end();
+    }
 }
