@@ -1,4 +1,5 @@
 /node_modules/
 /dist/
-/web/
-!/web/index.html
+/web/bundle.js
+/web/bundle.js.LICENSE.txt
+/coverage/
